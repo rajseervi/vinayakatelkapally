@@ -1,0 +1,154 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && 
+             exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+    
+    function isManager() {
+      return isAuthenticated() && 
+             exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+             (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'manager' ||
+              get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin');
+    }
+    
+    function isValidUser() {
+      return isAuthenticated() && 
+             exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isActive == true;
+    }
+
+    // Users collection - Admin only for user management
+    match /users/{userId} {
+      allow read: if isAuthenticated() && (isOwner(userId) || isManager());
+      allow write: if isAdmin();
+      allow create: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Company settings - Admin only
+    match /settings/{document} {
+      allow read, write: if isAdmin();
+    }
+
+    // Products collection
+    match /products/{productId} {
+      allow read: if isValidUser() || request.auth == null; // Allow server-side reads
+      allow write, create: if isValidUser();
+      allow delete: if isManager();
+    }
+
+    // Categories collection
+    match /categories/{categoryId} {
+      allow read: if isValidUser();
+      allow write, create: if isValidUser();
+      allow delete: if isManager();
+    }
+
+    // Parties collection
+    match /parties/{partyId} {
+      allow read: if isValidUser() || request.auth == null; // Allow server-side reads
+      allow write, create: if isValidUser();
+      allow delete: if isManager();
+    }
+
+    // Suppliers collection
+    match /suppliers/{supplierId} {
+      allow read: if isValidUser();
+      allow write, create: if isValidUser();
+      allow delete: if isManager();
+    }
+
+    // Invoices collection
+    match /invoices/{invoiceId} {
+      allow read: if isValidUser() || request.auth == null; // Allow server-side reads
+      allow write, create: if isValidUser();
+      allow delete: if isManager();
+    }
+
+    // Purchase Invoices collection
+    match /purchaseInvoices/{invoiceId} {
+      allow read: if isValidUser();
+      allow write, create: if isValidUser();
+      allow delete: if isManager();
+    }
+
+    // Orders collection
+    match /orders/{orderId} {
+      allow read: if isValidUser();
+      allow write, create: if isValidUser();
+      allow delete: if isManager();
+    }
+
+    // Transactions collection
+    match /transactions/{transactionId} {
+      allow read: if isValidUser();
+      allow write, create: if isValidUser();
+      allow delete: if isManager();
+    }
+
+    // Accounts collection (Ledger)
+    match /accounts/{accountId} {
+      allow read: if isValidUser();
+      allow write, create: if isValidUser();
+      allow delete: if isManager();
+    }
+
+    // Quick Links collection
+    match /quickLinks/{linkId} {
+      allow read: if isValidUser();
+      allow write, create: if isValidUser();
+      allow delete: if isOwner(resource.data.userId) || isManager();
+    }
+
+    // Reports collection - Read only for users, write for managers
+    match /reports/{reportId} {
+      allow read: if isValidUser();
+      allow write, create: if isManager();
+      allow delete: if isAdmin();
+    }
+
+    // Audit logs - Admin only
+    match /auditLogs/{logId} {
+      allow read: if isAdmin();
+      allow write, create: if isValidUser(); // Users can create logs
+      allow delete: if false; // Never delete audit logs
+    }
+
+    // System notifications
+    match /notifications/{notificationId} {
+      allow read: if isValidUser();
+      allow write, create: if isManager();
+      allow delete: if isOwner(resource.data.userId) || isManager();
+    }
+
+    // Backup and sync data - Admin only
+    match /backups/{backupId} {
+      allow read, write, create, delete: if isAdmin();
+    }
+
+    // Non-GST Parties collection
+    match /parties_no_gst/{partyId} {
+      allow read, write, create: if isValidUser() && 
+        (resource == null || isOwner(resource.data.userId));
+      allow delete: if isValidUser() && 
+        (resource == null || isOwner(resource.data.userId));
+    }
+
+    // Default deny rule for any other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
