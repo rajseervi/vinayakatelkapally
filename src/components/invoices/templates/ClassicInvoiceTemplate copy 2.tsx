@@ -135,8 +135,8 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
         margin: 0;
         padding: 0;
         font-family: 'Times New Roman', serif;
-        font-size: 2em;
-        line-height: 1;
+        font-size: 9px;
+        line-height: 1.1;
         color: #000;
       }
       
@@ -144,7 +144,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
         font-family: 'Times New Roman', serif;
         color: #000;
         line-height: 1.1;
-        font-size: 1em;
+        font-size: 9px;
         width: 100%;
         max-width: none;
         margin: 0;
@@ -176,7 +176,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
       .tally-table {
         border-collapse: collapse;
         width: 100%;
-        font-size: 1.1em;
+        font-size: 10px;
         height: 100%;
       }
       
@@ -251,14 +251,14 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
         background: #f9f9f9 !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
-        font-size: 0.8em;
+        font-size: 8px;
       }
       
       .tally-terms {
         border: 1px solid #000 !important;
         padding: 3px;
         margin-top: 2px;
-        font-size: 0.7em;
+        font-size: 7px;
         line-height: 1;
       }
       
@@ -294,7 +294,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
       
       .signature-header {
         font-weight: bold;
-        font-size: 0.8em;
+        font-size: 8px;
         margin-bottom: 2px;
         text-transform: uppercase;
         border-bottom: 1px solid #000;
@@ -308,12 +308,12 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.7em;
+        font-size: 7px;
         background: #fafafa;
       }
       
       .signature-field {
-        font-size: 0.7em;
+        font-size: 7px;
         margin-bottom: 1px;
         line-height: 1.2;
       }
@@ -591,7 +591,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
           {copyLabel && (
             <Typography className="tally-invoice-subtitle" variant="body2" sx={{
               fontStyle: 'italic',
-              fontSize: '0.65em',
+              fontSize: '0.65rem',
               fontFamily: '"Times New Roman", serif',
               position: 'absolute',
               top: 4,
@@ -605,7 +605,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
           )}
           <Typography className="tally-company-header" variant="h4" sx={{
             fontWeight: 'bold',
-            fontSize: '2em',
+            fontSize: '2rem',
             fontFamily: '"Times New Roman", serif',
             textTransform: 'uppercase',
             letterSpacing: '2px',
@@ -615,7 +615,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
           </Typography>
           {companyInfo?.address && (
             <Typography variant="body2" sx={{
-              fontSize: '0.95em',
+              fontSize: '0.95rem',
               fontFamily: '"Times New Roman", serif',
               mb: 0.25,
               fontWeight: 'medium'
@@ -624,7 +624,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
             </Typography>
           )}
           <Typography variant="body2" sx={{
-            fontSize: '0.85em',
+            fontSize: '0.85rem',
             fontFamily: '"Times New Roman", serif',
             mb: 0.25
           }}>
@@ -635,7 +635,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
             ].filter(Boolean).join(' | ')}
           </Typography>
           <Typography variant="body2" sx={{
-            fontSize: '0.75em',
+            fontSize: '0.75rem',
             fontFamily: '"Times New Roman", serif',
             mb: 0.15,
             fontStyle: 'italic'
@@ -645,7 +645,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
 
           <Typography className="tally-invoice-title" variant="h5" sx={{
             fontWeight: 'bold',
-            fontSize: '0.9em',
+            fontSize: '0.9rem',
             fontFamily: '"Times New Roman", serif',
             textDecoration: 'underline',
             mb: 0.1
@@ -670,13 +670,13 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                 <Typography className="tally-label" variant="body2" sx={{
                   fontWeight: 'bold',
                   textDecoration: 'underline',
-                  fontSize: '0.85em',
+                  fontSize: '0.85rem',
                   mb: 0.15,
                 }}>
                   Bill To:
                 </Typography>
                 <Typography variant="body2" sx={{
-                  fontSize: (invoice.partyName && invoice.partyName.length > 20) ? '0.85em' : '1em',
+                  fontSize: (invoice.partyName && invoice.partyName.length > 20) ? '0.85rem' : '1rem',
                   fontWeight: 'bold',
                   mb: 0.15,
                   overflow: 'hidden',
@@ -686,23 +686,23 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                   {invoice.partyName || 'N/A'}
                 </Typography>
                 {invoice.partyAddress && (
-                  <Typography variant="body2" sx={{ fontSize: '0.85em', mb: 0.15, lineHeight: 1.25 }}>
+                  <Typography variant="body2" sx={{ fontSize: '0.85rem', mb: 0.15, lineHeight: 1.25 }}>
                     {invoice.partyAddress}
                   </Typography>
                 )}
                 <Box sx={{ justifyContent: 'space-between', mb: 0.15, }}>
-                  <Typography variant="body2" sx={{ fontSize: '0.7em', fontWeight: 'bold' }}>
+                  <Typography variant="body2" sx={{ fontSize: '0.7rem', fontWeight: 'bold' }}>
 
                   </Typography>
-                  <Typography variant="body2" sx={{ fontSize: '0.7em' }}>
+                  <Typography variant="body2" sx={{ fontSize: '0.7rem' }}>
                     Phone: {invoice.partyPhone || 'N/A'}
                   </Typography>
                 </Box>
                 {/* <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.1, textAlign: 'right' }}>
-                <Typography variant="body2" sx={{ fontSize: '0.6em', fontWeight: 'bold', }}>
+                <Typography variant="body2" sx={{ fontSize: '0.6rem', fontWeight: 'bold', }}>
 
                 </Typography>
-                <Typography variant="body2" sx={{ fontSize: '0.6em' }}>
+                <Typography variant="body2" sx={{ fontSize: '0.6rem' }}>
                   Email: {invoice.partyEmail || 'N/A'}
                 </Typography>
               </Box> */}
@@ -720,40 +720,40 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                 <Typography className="tally-label" variant="body2" sx={{
                   fontWeight: 'bold',
                   textDecoration: 'underline',
-                  fontSize: '0.85em',
+                  fontSize: '0.85rem',
                   mb: 0.2
                 }}>
                   Quotation Information:
                 </Typography>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.12 }}>
-                  <Typography variant="body2" sx={{ fontSize: '0.75em', fontWeight: 'bold' }}>
+                  <Typography variant="body2" sx={{ fontSize: '0.75rem', fontWeight: 'bold' }}>
                     Quotation No.:
                   </Typography>
-                  <Typography variant="body2" sx={{ fontSize: '0.8em', fontWeight: '800' }}>
+                  <Typography variant="body2" sx={{ fontSize: '0.8rem', fontWeight: '800' }}>
                     {invoice.invoiceNumber || 'N/A'}
                   </Typography>
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.12 }}>
-                  <Typography variant="body2" sx={{ fontSize: '0.75em', fontWeight: 'bold' }}>
+                  <Typography variant="body2" sx={{ fontSize: '0.75rem', fontWeight: 'bold' }}>
                     Quotation Date:
                   </Typography>
-                  <Typography variant="body2" sx={{ fontSize: '0.75em' }}>
+                  <Typography variant="body2" sx={{ fontSize: '0.75rem' }}>
                     {formatDate(invoice.date)}
                   </Typography>
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.12 }}>
-                  <Typography variant="body2" sx={{ fontSize: '0.75em', fontWeight: 'bold' }}>
+                  <Typography variant="body2" sx={{ fontSize: '0.75rem', fontWeight: 'bold' }}>
                     Due Date:
                   </Typography>
-                  <Typography variant="body2" sx={{ fontSize: '0.75em' }}>
+                  <Typography variant="body2" sx={{ fontSize: '0.75rem' }}>
                     {invoice.dueDate ? formatDate(invoice.dueDate) : formatDate(new Date(new Date(invoice.date).getTime() + 30 * 24 * 60 * 60 * 1000))}
                   </Typography>
                 </Box>
                 {/* <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Typography variant="body2" sx={{ fontSize: '0.65em', fontWeight: 'bold' }}>
+                <Typography variant="body2" sx={{ fontSize: '0.65rem', fontWeight: 'bold' }}>
                   Payment Mode:
                 </Typography>
-                <Typography variant="body2" sx={{ fontSize: '0.65em' }}>
+                <Typography variant="body2" sx={{ fontSize: '0.65rem' }}>
                   {invoice.paymentMode || 'Cash/Cheque'}
                 </Typography>
               </Box> */}
@@ -775,7 +775,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                       bgcolor: '#f0f0f0',
                       fontWeight: 'bold',
                       width: '5%',
-                      fontSize: '0.85em',
+                      fontSize: '0.6rem',
                       py: 0.3,
                       px: 0.3,
                       borderLeft: verticalBorder,
@@ -788,7 +788,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                       bgcolor: '#f0f0f0',
                       fontWeight: 'bold',
                       width: '35%',
-                      fontSize: '0.85em',
+                      fontSize: '0.6rem',
                       py: 0.3,
                       px: 0.3,
                       borderRight: verticalBorder
@@ -799,20 +799,32 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                       border: 'none',
                       bgcolor: '#f0f0f0',
                       fontWeight: 'bold',
-                      width: '14%',
-                      fontSize: '0.85em',
+                      width: '8%',
+                      fontSize: '0.6rem',
                       py: 0.3,
                       px: 0.3,
                       borderRight: verticalBorder
                     }}>
-                      Quantity
+                      Qty
+                    </TableCell>
+                    <TableCell className="center-cell" sx={{
+                      border: 'none',
+                      bgcolor: '#f0f0f0',
+                      fontWeight: 'bold',
+                      width: '6%',
+                      fontSize: '0.6rem',
+                      py: 0.3,
+                      px: 0.3,
+                      borderRight: verticalBorder
+                    }}>
+                      UOM
                     </TableCell>
                     <TableCell className="number-cell" sx={{
                       border: 'none',
                       bgcolor: '#f0f0f0',
                       fontWeight: 'bold',
                       width: '12%',
-                      fontSize: '0.85em',
+                      fontSize: '0.6rem',
                       py: 0.3,
                       px: 0.3,
                       borderRight: verticalBorder
@@ -824,7 +836,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                       bgcolor: '#f0f0f0',
                       fontWeight: 'bold',
                       width: '8%',
-                      fontSize: '0.85em',
+                      fontSize: '0.6rem',
                       py: 0.3,
                       px: 0.3,
                       borderRight: verticalBorder
@@ -836,7 +848,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                     bgcolor: '#f0f0f0',
                     fontWeight: 'bold',
                     width: '8%',
-                    fontSize: '0.85em',
+                    fontSize: '0.6rem',
                     py: 0.3,
                     px: 0.3,
                     borderRight: verticalBorder
@@ -848,7 +860,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                       bgcolor: '#f0f0f0',
                       fontWeight: 'bold',
                       width: '18%',
-                      fontSize: '0.85em',
+                      fontSize: '0.6rem',
                       py: 0.3,
                       px: 0.3,
                       borderLeft: verticalBorder,
@@ -862,11 +874,11 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                   {invoice.items?.map((item, index) => (
                     <TableRow key={index} sx={{
                       height: 'auto',
-                      borderBottom: '1px solid #000'
+                      borderBottom: fillerRowCount === 0 && index === totalItemRows - 1 ? '2px solid #000' : 'none'
                     }}>
                       <TableCell className="center-cell" sx={{
                         border: 'none',
-                        fontSize: '0.9em',
+                        fontSize: '0.85rem',
                         py: 0.3,
                         px: 0.3,
                         borderLeft: verticalBorder,
@@ -876,32 +888,41 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                       </TableCell>
                       <TableCell sx={{
                         border: 'none',
-                        fontSize: '1.1em',
+                        fontSize: '0.85rem',
                         py: 0.3,
                         px: 0.3,
                         borderRight: verticalBorder
                       }}>
-                        <Typography variant="body2" sx={{ fontWeight: 'medium', fontSize: '1.1em' }}>
+                        <Typography variant="body2" sx={{ fontWeight: 'medium', fontSize: '0.9rem' }}>
                           {item.name}
                         </Typography>
                         {item.description && (
-                          <Typography variant="caption" sx={{ color: '#666', display: 'block', fontSize: '0.95em', whiteSpace: 'pre-line' }}>
+                          <Typography variant="caption" sx={{ color: '#666', display: 'block', fontSize: '0.8rem', whiteSpace: 'pre-line' }}>
                             {item.description}
                           </Typography>
                         )}
                       </TableCell>
                       <TableCell className="center-cell" sx={{
                         border: 'none',
-                        fontSize: '1.1em',
+                        fontSize: '0.85rem',
                         py: 0.3,
                         px: 0.3,
                         borderRight: verticalBorder
                       }}>
-                        {item.quantity} <span style={{ fontSize: '0.7em' }}>{item.unitOfMeasuement || 'nos'}</span>
+                        {item.quantity}
+                      </TableCell>
+                      <TableCell className="center-cell" sx={{
+                        border: 'none',
+                        fontSize: '0.85rem',
+                        py: 0.3,
+                        px: 0.3,
+                        borderRight: verticalBorder
+                      }}>
+                        {item.unitOfMeasurement || 'PCS'}
                       </TableCell>
                       <TableCell className="number-cell" sx={{
                         border: 'none',
-                        fontSize: '1.1em',
+                        fontSize: '0.85rem',
                         py: 0.3,
                         px: 0.3,
                         borderRight: verticalBorder
@@ -910,7 +931,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                       </TableCell>
                       <TableCell className="center-cell" sx={{
                         border: 'none',
-                        fontSize: '1.1em',
+                        fontSize: '0.85rem',
                         py: 0.3,
                         px: 0.3,
                         borderRight: verticalBorder
@@ -919,7 +940,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                       </TableCell>
                       {/* <TableCell className="center-cell" sx={{ 
                       border: 'none', 
-                      fontSize: '0.7em', 
+                      fontSize: '0.7rem', 
                       py: 0.3,
                       px: 0.3,
                       borderRight: verticalBorder
@@ -928,7 +949,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                     </TableCell> */}
                       <TableCell className="number-cell" sx={{
                         border: 'none',
-                        fontSize: '1.1em',
+                        fontSize: '0.85rem',
                         fontWeight: 'bold',
                         py: 0.3,
                         px: 0.3,
@@ -944,11 +965,11 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                   {Array.from({ length: fillerRowCount }).map((_, fillerIndex) => (
                     <TableRow key={`filler-${fillerIndex}`} sx={{
                       height: 'auto',
-                      borderBottom: '1px solid #000'
+                      borderBottom: fillerIndex === fillerRowCount - 1 ? '2px solid #000' : 'none'
                     }}>
                       <TableCell className="center-cell" sx={{
                         border: 'none',
-                        fontSize: '1.1em',
+                        fontSize: '0.7rem',
                         py: 0.3,
                         px: 0.3,
                         borderLeft: verticalBorder,
@@ -958,7 +979,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                       </TableCell>
                       <TableCell sx={{
                         border: 'none',
-                        fontSize: '1.1em',
+                        fontSize: '0.7rem',
                         py: 0.3,
                         px: 0.3,
                         borderRight: verticalBorder
@@ -967,16 +988,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                       </TableCell>
                       <TableCell className="center-cell" sx={{
                         border: 'none',
-                        fontSize: '1.1em',
-                        py: 0.3,
-                        px: 0.3,
-                        borderRight: verticalBorder
-                      }}>
-                        &nbsp;
-                      </TableCell>
-                      <TableCell className="number-cell" sx={{
-                        border: 'none',
-                        fontSize: '1.1em',
+                        fontSize: '0.7rem',
                         py: 0.3,
                         px: 0.3,
                         borderRight: verticalBorder
@@ -985,7 +997,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                       </TableCell>
                       <TableCell className="center-cell" sx={{
                         border: 'none',
-                        fontSize: '1.1em',
+                        fontSize: '0.7rem',
                         py: 0.3,
                         px: 0.3,
                         borderRight: verticalBorder
@@ -994,7 +1006,25 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                       </TableCell>
                       <TableCell className="number-cell" sx={{
                         border: 'none',
-                        fontSize: '1.1em',
+                        fontSize: '0.7rem',
+                        py: 0.3,
+                        px: 0.3,
+                        borderRight: verticalBorder
+                      }}>
+                        &nbsp;
+                      </TableCell>
+                      <TableCell className="center-cell" sx={{
+                        border: 'none',
+                        fontSize: '0.7rem',
+                        py: 0.3,
+                        px: 0.3,
+                        borderRight: verticalBorder
+                      }}>
+                        &nbsp;
+                      </TableCell>
+                      <TableCell className="number-cell" sx={{
+                        border: 'none',
+                        fontSize: '0.7rem',
                         py: 0.3,
                         px: 0.3,
                         borderLeft: verticalBorder,
@@ -1013,20 +1043,20 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
           <Box sx={{ mb: 0.2, display: 'flex', justifyContent: 'flex-end', pr: 0 }}>
             {/* <Box sx={{ border: '1px solid #000', width: '45%', minWidth: '180px' }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 0.2, borderBottom: '1px solid #ddd' }}>
-              <Typography sx={{ fontSize: '0.65em', fontWeight: 'bold' }}>Subtotal:</Typography>
-              <Typography sx={{ fontSize: '0.65em', fontWeight: 'bold' }}>
+              <Typography sx={{ fontSize: '0.65rem', fontWeight: 'bold' }}>Subtotal:</Typography>
+              <Typography sx={{ fontSize: '0.65rem', fontWeight: 'bold' }}>
                 ₹{(invoice.items?.reduce((sum, item) => sum + ((item.quantity || 0) * (item.price || 0)), 0) || 0).toFixed(2)}
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 0.2, borderBottom: '1px solid #ddd' }}>
-              <Typography sx={{ fontSize: '0.65em', fontWeight: 'bold' }}>Discount:</Typography>
-              <Typography sx={{ fontSize: '0.65em', fontWeight: 'bold' }}>
+              <Typography sx={{ fontSize: '0.65rem', fontWeight: 'bold' }}>Discount:</Typography>
+              <Typography sx={{ fontSize: '0.65rem', fontWeight: 'bold' }}>
                 ₹{(invoice.items?.reduce((sum, item) => sum + (((item.quantity || 0) * (item.price || 0)) * ((item.discount || 0) / 100)), 0) || 0).toFixed(2)}
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 0.2, bgcolor: '#e8e8e8', fontWeight: 'bold', border: '1px solid #000' }}>
-              <Typography sx={{ fontSize: '0.75em', fontWeight: 'bold' }}>Grand Total:</Typography>
-              <Typography sx={{ fontSize: '0.75em', fontWeight: 'bold' }}>
+              <Typography sx={{ fontSize: '0.75rem', fontWeight: 'bold' }}>Grand Total:</Typography>
+              <Typography sx={{ fontSize: '0.75rem', fontWeight: 'bold' }}>
                 ₹{(invoice.items?.reduce((sum, item) => sum + ((item.quantity || 0) * (item.price || 0) * (1 - (item.discount || 0) / 100)), 0) || 0).toFixed(2)}
               </Typography>
             </Box>
@@ -1035,26 +1065,26 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
         </Box>
         <Box className="tally-bottom-section" sx={{ mt: 'auto', display: 'flex', flexDirection: 'column', width: '100%', flex: '0 0 auto' }}>
           <Box sx={{ mb: 0.15, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-            {/* <Typography className="tally-label" variant="body2" sx={{ fontWeight: 'bold', textDecoration: 'underline', fontSize: '0.7em', mb: 0.1, lineHeight: 1, textAlign: 'right', width: '100%' }}>
+            {/* <Typography className="tally-label" variant="body2" sx={{ fontWeight: 'bold', textDecoration: 'underline', fontSize: '0.7rem', mb: 0.1, lineHeight: 1, textAlign: 'right', width: '100%' }}>
             Totals Summary:
           </Typography> */}
             <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: '100%' }}>
               <Box sx={{ border: '1px solid #000', width: '45%', minWidth: '180px' }}>
                 {/* <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 0.2, borderBottom: '1px solid #ddd' }}>
-                <Typography sx={{ fontSize: '0.65em', fontWeight: 'bold' }}>Subtotal:</Typography>
-                <Typography sx={{ fontSize: '0.65em', fontWeight: 'bold' }}>
+                <Typography sx={{ fontSize: '0.65rem', fontWeight: 'bold' }}>Subtotal:</Typography>
+                <Typography sx={{ fontSize: '0.65rem', fontWeight: 'bold' }}>
                   ₹{(invoice.items?.reduce((sum, item) => sum + ((item.quantity || 0) * (item.price || 0)), 0) || 0).toFixed(2)}
                 </Typography>
               </Box> */}
                 {/* <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 0.2, borderBottom: '1px solid #ddd' }}>
-                <Typography sx={{ fontSize: '0.65em', fontWeight: 'bold' }}>Discount:</Typography>
-                <Typography sx={{ fontSize: '0.65em', fontWeight: 'bold' }}>
+                <Typography sx={{ fontSize: '0.65rem', fontWeight: 'bold' }}>Discount:</Typography>
+                <Typography sx={{ fontSize: '0.65rem', fontWeight: 'bold' }}>
                   ₹{(invoice.items?.reduce((sum, item) => sum + (((item.quantity || 0) * (item.price || 0)) * ((item.discount || 0) / 100)), 0) || 0).toFixed(2)}
                 </Typography>
               </Box> */}
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 0.2, bgcolor: '#e8e8e8', fontWeight: 'bold', border: '1px solid #000' }}>
-                  <Typography sx={{ fontSize: '1.2em', fontWeight: 'bold' }}>Grand Total:</Typography>
-                  <Typography sx={{ fontSize: '1.2em', fontWeight: 'bold' }}>
+                  <Typography sx={{ fontSize: '0.75rem', fontWeight: 'bold' }}>Grand Total:</Typography>
+                  <Typography sx={{ fontSize: '0.75rem', fontWeight: 'bold' }}>
                     ₹{(invoice.items?.reduce((sum, item) => sum + ((item.quantity || 0) * (item.price || 0) * (1 - (item.discount || 0) / 100)), 0) || 0).toFixed(2)}
                   </Typography>
                 </Box>
@@ -1071,7 +1101,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
             <Typography className="tally-label" variant="body2" sx={{ 
               fontWeight: 'bold', 
               textDecoration: 'underline',
-              fontSize: '0.75em',
+              fontSize: '0.75rem',
               mb: 0.5
             }}>
               Payment Information:
@@ -1079,39 +1109,39 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
             <Grid container spacing={1}>
               <Grid item xs={6}>
                 {displayCompanyName && (
-                  <Typography variant="body2" sx={{ fontSize: '0.7em', mb: 0.2 }}>
+                  <Typography variant="body2" sx={{ fontSize: '0.7rem', mb: 0.2 }}>
                     <strong>Company:</strong> {displayCompanyName}
                   </Typography>
                 )}
                 {accountHolderName && (
-                  <Typography variant="body2" sx={{ fontSize: '0.7em', mb: 0.2 }}>
+                  <Typography variant="body2" sx={{ fontSize: '0.7rem', mb: 0.2 }}>
                     <strong>Account Holder:</strong> {accountHolderName}
                   </Typography>
                 )}
                 {bankName && (
-                  <Typography variant="body2" sx={{ fontSize: '0.7em', mb: 0.2 }}>
+                  <Typography variant="body2" sx={{ fontSize: '0.7rem', mb: 0.2 }}>
                     <strong>Bank Name:</strong> {bankName}
                   </Typography>
                 )}
                 {accountNumber && (
-                  <Typography variant="body2" sx={{ fontSize: '0.7em', mb: 0.2 }}>
+                  <Typography variant="body2" sx={{ fontSize: '0.7rem', mb: 0.2 }}>
                     <strong>Account No.:</strong> {accountNumber}
                   </Typography>
                 )}
               </Grid>
               <Grid item xs={6}>
                 {branch && (
-                  <Typography variant="body2" sx={{ fontSize: '0.7em', mb: 0.2 }}>
+                  <Typography variant="body2" sx={{ fontSize: '0.7rem', mb: 0.2 }}>
                     <strong>Branch:</strong> {branch}
                   </Typography>
                 )}
                 {ifscCode && (
-                  <Typography variant="body2" sx={{ fontSize: '0.7em', mb: 0.2 }}>
+                  <Typography variant="body2" sx={{ fontSize: '0.7rem', mb: 0.2 }}>
                     <strong>IFSC Code:</strong> {ifscCode}
                   </Typography>
                 )}
                 {upiId && (
-                  <Typography variant="body2" sx={{ fontSize: '0.7em', mb: 0.2 }}>
+                  <Typography variant="body2" sx={{ fontSize: '0.7rem', mb: 0.2 }}>
                     <strong>UPI ID:</strong> {upiId}
                   </Typography>
                 )}
@@ -1134,13 +1164,13 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
             <Typography className="tally-label" variant="body2" sx={{
               fontWeight: 'bold',
               textDecoration: 'underline',
-              fontSize: '0.7em',
+              fontSize: '0.7rem',
               mb: 0.1,
               lineHeight: 1
             }}>
               Declaration:
             </Typography>
-            <Typography variant="body2" sx={{ fontSize: '0.65em', lineHeight: 1.1, wordWrap: 'break-word' }}>
+            <Typography variant="body2" sx={{ fontSize: '0.65rem', lineHeight: 1.1, wordWrap: 'break-word' }}>
               We declare that this invoice shows the actual price of the goods described and that all particulars are true and correct.
             </Typography>
           </Box>
@@ -1158,16 +1188,16 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
             <Typography className="tally-label" variant="body2" sx={{
               fontWeight: 'bold',
               textDecoration: 'underline',
-              fontSize: '0.7em',
+              fontSize: '0.7rem',
               mb: 0.05,
               lineHeight: 1
             }}>
               Terms & Conditions:
             </Typography>
-            <Typography variant="body2" sx={{ fontSize: '0.6em', mb: 0.05, lineHeight: 1, wordWrap: 'break-word' }}>
+            <Typography variant="body2" sx={{ fontSize: '0.6rem', mb: 0.05, lineHeight: 1, wordWrap: 'break-word' }}>
               1.We declare that this invoice shows the actual price	of the goods described and that all particulars are true and correct
             </Typography>
-            <Typography variant="body2" sx={{ fontSize: '0.6em', mb: 0.05, lineHeight: 1, wordWrap: 'break-word' }}>
+            <Typography variant="body2" sx={{ fontSize: '0.6rem', mb: 0.05, lineHeight: 1, wordWrap: 'break-word' }}>
               Note: Warrenty not covered for physical damage
             </Typography>
 
@@ -1189,7 +1219,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
               <Typography className="payment-info-header" variant="body2" sx={{
                 fontWeight: 'bold',
                 textDecoration: 'underline',
-                fontSize: '0.7em',
+                fontSize: '0.7rem',
                 mb: 0.12,
                 lineHeight: 1,
                 textTransform: 'uppercase',
@@ -1211,14 +1241,14 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                     <Box className="payment-info-field" sx={{ display: 'grid', gridTemplateColumns: 'auto 1fr', columnGap: '2px' }}>
                       <Typography className="payment-info-label" variant="body2" sx={{
                         fontWeight: 'bold',
-                        fontSize: '0.65em',
+                        fontSize: '0.65rem',
                         whiteSpace: 'nowrap',
                         color: '#000'
                       }}>
                         Bank Name:
                       </Typography>
                       <Typography className="payment-info-value" variant="body2" sx={{
-                        fontSize: '0.65em',
+                        fontSize: '0.65rem',
                         flex: 1,
                         wordBreak: 'break-word',
                         color: '#333'
@@ -1236,14 +1266,14 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                     <Box className="payment-info-field" sx={{ display: 'grid', gridTemplateColumns: 'auto 1fr', columnGap: '2px' }}>
                       <Typography className="payment-info-label" variant="body2" sx={{
                         fontWeight: 'bold',
-                        fontSize: '0.65em',
+                        fontSize: '0.65rem',
                         whiteSpace: 'nowrap',
                         color: '#000'
                       }}>
                         Account No:
                       </Typography>
                       <Typography className="payment-info-value" variant="body2" sx={{
-                        fontSize: '0.65em',
+                        fontSize: '0.65rem',
                         flex: 1,
                         wordBreak: 'break-word',
                         overflowWrap: 'break-word',
@@ -1264,14 +1294,14 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                     <Box className="payment-info-field" sx={{ display: 'grid', gridTemplateColumns: 'auto 1fr', columnGap: '2px' }}>
                       <Typography className="payment-info-label" variant="body2" sx={{
                         fontWeight: 'bold',
-                        fontSize: '0.65em',
+                        fontSize: '0.65rem',
                         whiteSpace: 'nowrap',
                         color: '#000'
                       }}>
                         IFSC Code:
                       </Typography>
                       <Typography className="payment-info-value" variant="body2" sx={{
-                        fontSize: '0.65em',
+                        fontSize: '0.65rem',
                         flex: 1,
                         wordBreak: 'break-word',
                         color: '#333'
@@ -1289,14 +1319,14 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                     <Box className="payment-info-field" sx={{ display: 'grid', gridTemplateColumns: 'auto 1fr', columnGap: '2px' }}>
                       <Typography className="payment-info-label" variant="body2" sx={{
                         fontWeight: 'bold',
-                        fontSize: '0.65em',
+                        fontSize: '0.65rem',
                         whiteSpace: 'nowrap',
                         color: '#000'
                       }}>
                         A/C Holder:
                       </Typography>
                       <Typography className="payment-info-value" variant="body2" sx={{
-                        fontSize: '0.65em',
+                        fontSize: '0.65rem',
                         flex: 1,
                         wordBreak: 'break-word',
                         color: '#333'
@@ -1316,14 +1346,14 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                     <Box className="payment-info-field" sx={{ display: 'grid', gridTemplateColumns: 'auto 1fr', columnGap: '2px' }}>
                       <Typography className="payment-info-label" variant="body2" sx={{
                         fontWeight: 'bold',
-                        fontSize: '0.65em',
+                        fontSize: '0.65rem',
                         whiteSpace: 'nowrap',
                         color: '#000'
                       }}>
                         UPI ID:
                       </Typography>
                       <Typography className="payment-info-value" variant="body2" sx={{
-                        fontSize: '0.65em',
+                        fontSize: '0.65rem',
                         flex: 1,
                         wordBreak: 'break-word',
                         color: '#333'
@@ -1341,14 +1371,14 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                     <Box className="payment-info-field" sx={{ display: 'grid', gridTemplateColumns: 'auto 1fr', columnGap: '2px' }}>
                       <Typography className="payment-info-label" variant="body2" sx={{
                         fontWeight: 'bold',
-                        fontSize: '0.65em',
+                        fontSize: '0.65rem',
                         whiteSpace: 'nowrap',
                         color: '#000'
                       }}>
                         Payment Mode:
                       </Typography>
                       <Typography className="payment-info-value" variant="body2" sx={{
-                        fontSize: '0.65em',
+                        fontSize: '0.65rem',
                         flex: 1,
                         wordBreak: 'break-word',
                         color: '#333'
@@ -1368,14 +1398,14 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                     <Box className="payment-info-field" sx={{ display: 'grid', gridTemplateColumns: 'auto 1fr', columnGap: '2px' }}>
                       <Typography className="payment-info-label" variant="body2" sx={{
                         fontWeight: 'bold',
-                        fontSize: '0.65em',
+                        fontSize: '0.65rem',
                         whiteSpace: 'nowrap',
                         color: '#000'
                       }}>
                         Swift Code:
                       </Typography>
                       <Typography className="payment-info-value" variant="body2" sx={{
-                        fontSize: '0.65em',
+                        fontSize: '0.65rem',
                         flex: 1,
                         wordBreak: 'break-word',
                         color: '#333'
@@ -1393,14 +1423,14 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                     <Box className="payment-info-field" sx={{ display: 'grid', gridTemplateColumns: 'auto 1fr', columnGap: '2px' }}>
                       <Typography className="payment-info-label" variant="body2" sx={{
                         fontWeight: 'bold',
-                        fontSize: '0.65em',
+                        fontSize: '0.65rem',
                         whiteSpace: 'nowrap',
                         color: '#000'
                       }}>
                         Account Type:
                       </Typography>
                       <Typography className="payment-info-value" variant="body2" sx={{
-                        fontSize: '0.65em',
+                        fontSize: '0.65rem',
                         flex: 1,
                         wordBreak: 'break-word',
                         color: '#333'
@@ -1431,13 +1461,13 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
               <Typography className="tally-label" variant="body2" sx={{
                 fontWeight: 'bold',
                 textDecoration: 'underline',
-                fontSize: '0.7em',
+                fontSize: '0.7rem',
                 mb: 0.1,
                 lineHeight: 1
               }}>
                 Notes:
               </Typography>
-              <Typography variant="body2" sx={{ fontSize: '0.65em', lineHeight: 1.1, wordWrap: 'break-word' }}>
+              <Typography variant="body2" sx={{ fontSize: '0.65rem', lineHeight: 1.1, wordWrap: 'break-word' }}>
                 {invoice.notes}
               </Typography>
             </Box>
@@ -1447,7 +1477,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
             
           {/* Footer */}
           <Box className="tally-footer-text" sx={{ width: '100%', p: 0.1, mt: 0.1, mb: 0, boxSizing: 'border-box', borderTop: '1px solid #000' }}>
-            <Typography variant="caption" sx={{ fontSize: '0.6em', textAlign: 'center', display: 'block', lineHeight: 1 }}>
+            <Typography variant="caption" sx={{ fontSize: '0.6rem', textAlign: 'center', display: 'block', lineHeight: 1 }}>
               This is a Computer Generated Invoice
             </Typography>
           </Box>

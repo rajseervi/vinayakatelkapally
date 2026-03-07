@@ -118,7 +118,7 @@ const EnhancedPrintDialog: React.FC<PrintDialogProps> = ({ open, onClose, invoic
     pageBreaks: 'auto' as 'auto' | 'force' | 'avoid',
     showBorders: false,
     compactMode: false,
-    fontSize: 'normal' as 'small' | 'normal' | 'large'
+    fontSize: 'normal' as 'small' | 'normal' | 'large' | 'extra-large' | 'xx-large'
   });
   const [printing, setPrinting] = useState(false);
   const router = useRouter();
@@ -404,6 +404,8 @@ const EnhancedPrintDialog: React.FC<PrintDialogProps> = ({ open, onClose, invoic
                 <MenuItem value="small">🔍 Small (Fit More Content)</MenuItem>
                 <MenuItem value="normal">📰 Normal (Standard)</MenuItem>
                 <MenuItem value="large">🔎 Large (Better Readability)</MenuItem>
+                <MenuItem value="extra-large">📜 Extra Large (Large Text)</MenuItem>
+                <MenuItem value="xx-large">📢 XX-Large (Maximum Visibility)</MenuItem>
               </Select>
             </FormControl>
           </Grid>

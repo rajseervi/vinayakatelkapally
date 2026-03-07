@@ -505,6 +505,17 @@ export default function EnhancedPrintInvoicePage() {
 
       {/* Enhanced Print Styles */}
       <style jsx global>{`
+        .tally-template {
+          font-size: ${
+            fontSize === 'small' ? '12px' : 
+            fontSize === 'large' ? '20px' : 
+            fontSize === 'extra-large' ? '24px' : 
+            fontSize === 'xx-large' ? '28px' : 
+            '16px'
+          } !important;
+          ${compactMode ? 'line-height: 1.1 !important;' : ''}
+        }
+
         @media print {
           @page {
             size: ${orientation === 'landscape' ? 'A4 landscape' : 'A4 portrait'};
@@ -532,10 +543,7 @@ export default function EnhancedPrintInvoicePage() {
             margin-bottom: 0 !important;
           }
           
-          .tally-template {
-            font-size: ${fontSize === 'small' ? '8px' : fontSize === 'large' ? '12px' : '10px'} !important;
-            ${compactMode ? 'line-height: 1.1 !important;' : ''}
-          }
+          /* Inherit from parent or re-apply for print specifically if needed */
           
           /* Enhanced print quality */
           * {
