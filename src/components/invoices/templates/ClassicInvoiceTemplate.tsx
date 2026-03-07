@@ -562,6 +562,13 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
   const totalItemRows = invoice.items?.length || 0;
   const fillerRowCount = Math.max(0, 20 - totalItemRows);
 
+  // Calculation logic
+  const itemsTotal = invoice.items?.reduce((sum, item) => sum + ((item.quantity || 0) * (item.price || 0) * (1 - (item.discount || 0) / 100)), 0) || 0;
+  const transportCharges = invoice.transportCharges || 0;
+  const rawTotal = itemsTotal + transportCharges;
+  const finalGrandTotal = Math.round(rawTotal);
+  const roundOff = finalGrandTotal - rawTotal;
+
   return (
     <>
       <style>{printStyles}</style>
@@ -668,14 +675,13 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                 pb: 0.2,
               }}>
                 <Typography className="tally-label" variant="body2" sx={{
-                  fontWeight: 'bold',
-                  textDecoration: 'underline',
-                  fontSize: '0.85em',
+                  fontWeight: 'bold', 
+                  fontSize: '1.6em',
                   mb: 0.15,
                 }}>
-                  Bill To:
+                  {invoice.partyName || 'N/A'}
                 </Typography>
-                <Typography variant="body2" sx={{
+                {/* <Typography variant="body2" sx={{
                   fontSize: (invoice.partyName && invoice.partyName.length > 20) ? '0.85em' : '1em',
                   fontWeight: 'bold',
                   mb: 0.15,
@@ -684,7 +690,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                   whiteSpace: 'nowrap'
                 }}>
                   {invoice.partyName || 'N/A'}
-                </Typography>
+                </Typography> */}
                 {invoice.partyAddress && (
                   <Typography variant="body2" sx={{ fontSize: '0.85em', mb: 0.15, lineHeight: 1.25 }}>
                     {invoice.partyAddress}
@@ -745,14 +751,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                     {formatDate(invoice.date)}
                   </Typography>
                 </Box>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.12 }}>
-                  <Typography variant="body2" sx={{ fontSize: '0.75em', fontWeight: 'bold' }}>
-                    Due Date:
-                  </Typography>
-                  <Typography variant="body2" sx={{ fontSize: '0.75em' }}>
-                    {invoice.dueDate ? formatDate(invoice.dueDate) : formatDate(new Date(new Date(invoice.date).getTime() + 30 * 24 * 60 * 60 * 1000))}
-                  </Typography>
-                </Box>
+                
                 {/* <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Typography variant="body2" sx={{ fontSize: '0.65em', fontWeight: 'bold' }}>
                   Payment Mode:
@@ -1044,22 +1043,32 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
           </Typography> */}
             <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: '100%' }}>
               <Box sx={{ border: '1px solid #000', width: '45%', minWidth: '180px' }}>
-                {/* <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 0.2, borderBottom: '1px solid #ddd' }}>
-                <Typography sx={{ fontSize: '0.65em', fontWeight: 'bold' }}>Subtotal:</Typography>
-                <Typography sx={{ fontSize: '0.65em', fontWeight: 'bold' }}>
-                  ₹{(invoice.items?.reduce((sum, item) => sum + ((item.quantity || 0) * (item.price || 0)), 0) || 0).toFixed(2)}
-                </Typography>
-              </Box> */}
-                {/* <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 0.2, borderBottom: '1px solid #ddd' }}>
-                <Typography sx={{ fontSize: '0.65em', fontWeight: 'bold' }}>Discount:</Typography>
-                <Typography sx={{ fontSize: '0.65em', fontWeight: 'bold' }}>
-                  ₹{(invoice.items?.reduce((sum, item) => sum + (((item.quantity || 0) * (item.price || 0)) * ((item.discount || 0) / 100)), 0) || 0).toFixed(2)}
-                </Typography>
-              </Box> */}
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 0.2, bgcolor: '#e8e8e8', fontWeight: 'bold', border: '1px solid #000' }}>
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 0.2, borderBottom: '1px solid #000' }}>
+                  <Typography sx={{ fontSize: '0.9em', fontWeight: 'bold' }}>Subtotal:</Typography>
+                  <Typography sx={{ fontSize: '0.9em', fontWeight: 'bold' }}>
+                    ₹{itemsTotal.toFixed(2)}
+                  </Typography>
+                </Box>
+                {transportCharges > 0 && (
+                  <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 0.2, borderBottom: '1px solid #000' }}>
+                    <Typography sx={{ fontSize: '0.9em', fontWeight: 'bold' }}>Transport Charges:</Typography>
+                    <Typography sx={{ fontSize: '0.9em', fontWeight: 'bold' }}>
+                      ₹{transportCharges.toFixed(2)}
+                    </Typography>
+                  </Box>
+                )}
+                {Math.abs(roundOff) > 0.001 && (
+                  <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 0.2, borderBottom: '1px solid #000' }}>
+                    <Typography sx={{ fontSize: '0.9em', fontWeight: 'bold' }}>Round Off:</Typography>
+                    <Typography sx={{ fontSize: '0.9em', fontWeight: 'bold' }}>
+                      ₹{roundOff.toFixed(2)}
+                    </Typography>
+                  </Box>
+                )}
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 0.2, bgcolor: '#e8e8e8', fontWeight: 'bold', border: 'none' }}>
                   <Typography sx={{ fontSize: '1.2em', fontWeight: 'bold' }}>Grand Total:</Typography>
                   <Typography sx={{ fontSize: '1.2em', fontWeight: 'bold' }}>
-                    ₹{(invoice.items?.reduce((sum, item) => sum + ((item.quantity || 0) * (item.price || 0) * (1 - (item.discount || 0) / 100)), 0) || 0).toFixed(2)}
+                    ₹{finalGrandTotal.toFixed(2)}
                   </Typography>
                 </Box>
               </Box>
@@ -1124,6 +1133,22 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
           </Box>
         )} */}
 
+          {/* Amount in Words */}
+          <Box className="tally-amount-words" sx={{
+            border: '1px solid #000',
+            p: 0.3,
+            mb: 0.15,
+            width: '100%',
+            boxSizing: 'border-box',
+            backgroundColor: '#f9f9f9'
+          }}>
+            <Typography sx={{ fontSize: '1.2em', fontWeight: 'bold', display: 'inline' }}>
+              Amount Chargeable (in words):
+            </Typography>
+            <Typography sx={{ fontSize: '1.2em', fontWeight: 'bold', display: 'inline', ml: 1, textTransform: 'capitalize' }}>
+               {numberToWords(finalGrandTotal)}
+            </Typography>
+          </Box>
 
           {/* Declaration */}
           <Box className="tally-section-border" sx={{
