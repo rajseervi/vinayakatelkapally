@@ -413,7 +413,7 @@ export default function EnhancedAdminDashboard() {
           id: '1',
           type: 'invoice',
           title: 'New Invoice Created',
-          description: 'Invoice #INV-2024-001 for ABC Corp - ₹25,000',
+          description: 'Invoice #DC-2024-001 for ABC Corp - ₹25,000',
           timestamp: new Date(Date.now() - 1000 * 60 * 15).toISOString(),
           amount: 25000,
           status: 'success',
@@ -476,11 +476,11 @@ export default function EnhancedAdminDashboard() {
           id: '1',
           type: 'payment_due',
           title: 'Payment Overdue',
-          message: 'Invoice #INV-2024-001 payment is 5 days overdue (₹25,000)',
+          message: 'Invoice #DC-2024-001 payment is 5 days overdue (₹25,000)',
           timestamp: new Date(Date.now() - 1000 * 60 * 60 * 2).toISOString(),
           read: false,
           priority: 'high',
-          actionUrl: '/invoices/INV-2024-001',
+          actionUrl: '/invoices/DC-2024-001',
           actionText: 'View Invoice'
         },
         {

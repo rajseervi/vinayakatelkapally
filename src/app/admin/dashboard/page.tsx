@@ -776,7 +776,7 @@ export default function ModernAdminDashboardPage() {
           id: '1',
           type: 'payment_due',
           title: 'Payment Overdue',
-          message: 'Invoice #INV-2024-001 payment is 5 days overdue',
+          message: 'Invoice #DC-2024-001 payment is 5 days overdue',
           timestamp: new Date(Date.now() - 1000 * 60 * 60 * 2).toISOString(),
           read: false,
           priority: 'high'

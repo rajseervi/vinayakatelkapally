@@ -694,7 +694,7 @@ export default function EnhancedHeader({
           </ListItemIcon>
           <ListItemText
             primary="New invoice created"
-            secondary="Invoice #INV-001 has been generated"
+            secondary="Invoice #DC-001 has been generated"
           />
         </MenuItem>
         <MenuItem sx={{ py: 2 }}>

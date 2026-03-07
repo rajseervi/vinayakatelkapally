@@ -443,7 +443,7 @@ export class OptimizedInvoiceService {
   private static async generateInvoiceNumber(): Promise<string> {
     const year = new Date().getFullYear();
     const month = String(new Date().getMonth() + 1).padStart(2, '0');
-    const prefix = `INV-${year}${month}`;
+    const prefix = `DC-${year}${month}`;
     
     // Find the highest existing invoice number for this month
     const q = query(

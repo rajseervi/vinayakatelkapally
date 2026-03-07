@@ -126,10 +126,10 @@ export default function EnhancedDashboardPage() {
   ];
 
   const recentActivities = [
-    { text: "New invoice #INV-001 created", time: "2 minutes ago", icon: <Receipt color="primary" /> },
+    { text: "New invoice #DC-001 created", time: "2 minutes ago", icon: <Receipt color="primary" /> },
     { text: "Product 'Widget A' stock updated", time: "15 minutes ago", icon: <Inventory color="success" /> },
     { text: "New customer 'ABC Corp' added", time: "1 hour ago", icon: <People color="info" /> },
-    { text: "Payment received for INV-998", time: "2 hours ago", icon: <AttachMoney color="warning" /> },
+    { text: "Payment received for DC-998", time: "2 hours ago", icon: <AttachMoney color="warning" /> },
     { text: "Low stock alert for 'Widget B'", time: "3 hours ago", icon: <Notifications color="error" /> },
   ];
 

@@ -288,7 +288,7 @@ export default function OriginalPageComponent() {
         
         return {
           id: doc.id,
-          invoiceNumber: data.invoiceNumber || `INV-${doc.id.substring(0, 6)}`,
+          invoiceNumber: data.invoiceNumber || `DC-${doc.id.substring(0, 6)}`,
           date: formattedDate,
           partyName: data.partyName || 'Unknown Party',
           partyGstin: data.partyGstin || '',

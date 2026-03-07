@@ -31,7 +31,7 @@ import { Invoice } from '@/types/invoice_no_gst';
 // Mock invoice data
 const mockInvoice: Invoice = {
   id: 'test001',
-  invoiceNumber: 'INV-2024-001',
+  invoiceNumber: 'DC-2024-001',
   invoiceDate: new Date('2024-01-15'),
   customerName: 'Acme Corporation Ltd.',
   customerAddress: '123 Business Street\nCommercial District\nCity, State 12345',

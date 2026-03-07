@@ -730,7 +730,11 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                     Quotation No.:
                   </Typography>
                   <Typography variant="body2" sx={{ fontSize: '0.8em', fontWeight: '800' }}>
-                    {invoice.invoiceNumber || 'N/A'}
+                    {invoice.invoiceNumber ? 
+                      (invoice.invoiceNumber.startsWith('INV-') ? 
+                        invoice.invoiceNumber.replace('INV-', 'DC-') : 
+                        `DC-${invoice.invoiceNumber}`) : 
+                      'N/A'}
                   </Typography>
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.12 }}>

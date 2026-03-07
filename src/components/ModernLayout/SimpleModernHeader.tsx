@@ -1558,7 +1558,7 @@ export default function SuperEnhancedHeader({
               secondary={
                 <>
                   <Typography variant="body2" color="text.secondary" component="span" display="block">
-                    Invoice #INV-001 for ₹5,000 has been created
+                    Invoice #DC-001 for ₹5,000 has been created
                   </Typography>
                   <Typography variant="caption" color="text.secondary" component="span" display="block">
                     2 minutes ago

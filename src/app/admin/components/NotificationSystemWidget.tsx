@@ -100,12 +100,12 @@ export default function NotificationSystemWidget({
           type: 'payment_due',
           priority: 'high',
           title: 'Payment Overdue',
-          message: 'Invoice #INV-2024-001 payment is 5 days overdue. Amount: ₹25,000',
+          message: 'Invoice #DC-2024-001 payment is 5 days overdue. Amount: ₹25,000',
           timestamp: new Date(Date.now() - 1000 * 60 * 30).toISOString(),
           read: false,
           actionable: true,
           metadata: {
-            invoiceId: 'INV-2024-001',
+            invoiceId: 'DC-2024-001',
             amount: 25000
           }
         },
@@ -172,12 +172,12 @@ export default function NotificationSystemWidget({
           type: 'reminder',
           priority: 'medium',
           title: 'Invoice Due Tomorrow',
-          message: 'Invoice #INV-2024-003 for XYZ Ltd is due tomorrow (₹45,000)',
+          message: 'Invoice #DC-2024-003 for XYZ Ltd is due tomorrow (₹45,000)',
           timestamp: new Date(Date.now() - 1000 * 60 * 300).toISOString(),
           read: false,
           actionable: true,
           metadata: {
-            invoiceId: 'INV-2024-003',
+            invoiceId: 'DC-2024-003',
             amount: 45000
           }
         },

@@ -421,7 +421,7 @@ export default function ComprehensiveAdminDashboard() {
           id: '1',
           type: 'invoice',
           title: 'New Invoice Created',
-          description: 'Invoice #INV-2024-001 for ABC Corp - ₹25,000',
+          description: 'Invoice #DC-2024-001 for ABC Corp - ₹25,000',
           timestamp: new Date(Date.now() - 1000 * 60 * 15).toISOString(),
           amount: 25000,
           status: 'success',
@@ -433,7 +433,7 @@ export default function ComprehensiveAdminDashboard() {
           priority: 'medium',
           tags: ['invoice', 'abc-corp'],
           actionable: false,
-          actionUrl: '/invoices/INV-2024-001',
+          actionUrl: '/invoices/DC-2024-001',
           actionText: 'View Invoice'
         },
         {

@@ -437,13 +437,13 @@ function a11yProps(index: number) {
             
             // Format the sequence number with leading zeros
             const sequenceStr = sequence.toString().padStart(3, '0');
-            return `INV-${year}${month}-${sequenceStr}`;
+            return `DC-${year}${month}-${sequenceStr}`;
           });
         } catch (err) {
           console.error('Error generating invoice number:', err);
           // Fallback to a timestamp-based number if there's an error
           const timestamp = Date.now();
-          return `INV-${timestamp}`;
+          return `DC-${timestamp}`;
         }
       };
       
@@ -765,7 +765,7 @@ function a11yProps(index: number) {
         description: newProductDescription.trim(),
         isActive: true,
         gstRate: 18,
-        unitOfMeasurement: 'PCS',
+        unitOfMeasurement: 'nos',
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp()
       };

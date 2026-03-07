@@ -87,12 +87,12 @@ export default function RecentActivitiesWidget({
           id: '1',
           type: 'invoice',
           title: 'New Invoice Created',
-          description: 'Invoice #INV-2024-001 created for ABC Corp',
+          description: 'Invoice #DC-2024-001 created for ABC Corp',
           timestamp: new Date(Date.now() - 1000 * 60 * 5).toISOString(),
           amount: 25000,
           status: 'success',
           metadata: {
-            invoiceNumber: 'INV-2024-001',
+            invoiceNumber: 'DC-2024-001',
             customerName: 'ABC Corp'
           }
         },
@@ -166,11 +166,11 @@ export default function RecentActivitiesWidget({
           id: '8',
           type: 'invoice',
           title: 'Invoice Overdue',
-          description: 'Invoice #INV-2024-002 is 3 days overdue',
+          description: 'Invoice #DC-2024-002 is 3 days overdue',
           timestamp: new Date(Date.now() - 1000 * 60 * 180).toISOString(),
           status: 'error',
           metadata: {
-            invoiceNumber: 'INV-2024-002'
+            invoiceNumber: 'DC-2024-002'
           }
         }
       ];

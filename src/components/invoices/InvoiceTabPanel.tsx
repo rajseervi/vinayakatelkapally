@@ -222,7 +222,7 @@ export default function InvoiceTabPanel({ onCreateInvoice, onCreateGstInvoice, o
         const data = doc.data();
         return {
           id: doc.id,
-          invoiceNumber: data.invoiceNumber || `INV-${doc.id.substring(0, 6)}`,
+          invoiceNumber: data.invoiceNumber || `DC-${doc.id.substring(0, 6)}`,
           date: data.date || new Date().toISOString().split('T')[0],
           partyName: data.partyName || 'Unknown Party',
           total: typeof data.total === 'number' ? data.total : 0,

@@ -1319,7 +1319,7 @@ export default function SuperEnhancedHeader({
               secondary={
                 <Box>
                   <Typography variant="body2" color="text.secondary">
-                    Invoice #INV-001 from ABC Corp is 15 days overdue
+                    Invoice #DC-001 from ABC Corp is 15 days overdue
                   </Typography>
                   <Typography variant="caption" color="text.secondary">
                     2 hours ago
@@ -1341,7 +1341,7 @@ export default function SuperEnhancedHeader({
               secondary={
                 <Box>
                   <Typography variant="body2" color="text.secondary">
-                    Invoice #INV-002 has been generated for XYZ Ltd
+                    Invoice #DC-002 has been generated for XYZ Ltd
                   </Typography>
                   <Typography variant="caption" color="text.secondary">
                     1 day ago

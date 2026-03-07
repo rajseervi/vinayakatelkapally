@@ -106,7 +106,7 @@ export default function RecentInvoicesWidget({
       const mockInvoices: Invoice[] = [
         {
           id: '1',
-          invoiceNumber: 'INV-2024-001',
+          invoiceNumber: 'DC-2024-001',
           customerName: 'ABC Corporation Ltd.',
           customerEmail: 'contact@abccorp.com',
           customerPhone: '+91 9876543210',
@@ -120,7 +120,7 @@ export default function RecentInvoicesWidget({
         },
         {
           id: '2',
-          invoiceNumber: 'INV-2024-002',
+          invoiceNumber: 'DC-2024-002',
           customerName: 'XYZ Industries Pvt Ltd',
           customerEmail: 'billing@xyzind.com',
           customerPhone: '+91 9876543211',
@@ -134,7 +134,7 @@ export default function RecentInvoicesWidget({
         },
         {
           id: '3',
-          invoiceNumber: 'INV-2024-003',
+          invoiceNumber: 'DC-2024-003',
           customerName: 'Tech Solutions Inc.',
           customerEmail: 'accounts@techsol.com',
           customerPhone: '+91 9876543212',
@@ -148,7 +148,7 @@ export default function RecentInvoicesWidget({
         },
         {
           id: '4',
-          invoiceNumber: 'INV-2024-004',
+          invoiceNumber: 'DC-2024-004',
           customerName: 'Global Enterprises',
           customerEmail: 'finance@global.com',
           customerPhone: '+91 9876543213',
@@ -162,7 +162,7 @@ export default function RecentInvoicesWidget({
         },
         {
           id: '5',
-          invoiceNumber: 'INV-2024-005',
+          invoiceNumber: 'DC-2024-005',
           customerName: 'Smart Systems Ltd',
           customerEmail: 'billing@smartsys.com',
           customerPhone: '+91 9876543214',
@@ -175,7 +175,7 @@ export default function RecentInvoicesWidget({
         },
         {
           id: '6',
-          invoiceNumber: 'INV-2024-006',
+          invoiceNumber: 'DC-2024-006',
           customerName: 'Digital Dynamics',
           customerEmail: 'accounts@digidyn.com',
           customerPhone: '+91 9876543215',
@@ -189,7 +189,7 @@ export default function RecentInvoicesWidget({
         },
         {
           id: '7',
-          invoiceNumber: 'INV-2024-007',
+          invoiceNumber: 'DC-2024-007',
           customerName: 'Future Tech Corp',
           customerEmail: 'billing@futuretech.com',
           customerPhone: '+91 9876543216',
@@ -203,7 +203,7 @@ export default function RecentInvoicesWidget({
         },
         {
           id: '8',
-          invoiceNumber: 'INV-2024-008',
+          invoiceNumber: 'DC-2024-008',
           customerName: 'Innovation Hub',
           customerEmail: 'finance@innohub.com',
           customerPhone: '+91 9876543217',
@@ -217,7 +217,7 @@ export default function RecentInvoicesWidget({
         },
         {
           id: '9',
-          invoiceNumber: 'INV-2024-009',
+          invoiceNumber: 'DC-2024-009',
           customerName: 'NextGen Solutions',
           customerEmail: 'accounts@nextgen.com',
           customerPhone: '+91 9876543218',
@@ -231,7 +231,7 @@ export default function RecentInvoicesWidget({
         },
         {
           id: '10',
-          invoiceNumber: 'INV-2024-010',
+          invoiceNumber: 'DC-2024-010',
           customerName: 'Quantum Systems',
           customerEmail: 'billing@quantum.com',
           customerPhone: '+91 9876543219',
