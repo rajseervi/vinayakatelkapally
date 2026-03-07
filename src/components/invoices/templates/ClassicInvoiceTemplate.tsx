@@ -135,7 +135,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
         margin: 0;
         padding: 0;
         font-family: 'Times New Roman', serif;
-        font-size: 2em;
+        font-size: 1.6em;
         line-height: 1;
         color: #000;
       }
@@ -506,7 +506,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
       
       .tally-info-section {
         padding: 2px 3px;
-        min-height: 30mm;
+        min-height: 15mm;
       }
       
       .tally-label {
@@ -560,7 +560,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
   const upiId = getDisplayValue(bankDetails?.upiId);
   const verticalBorder = '1px solid #000';
   const totalItemRows = invoice.items?.length || 0;
-  const fillerRowCount = Math.max(0, 20 - totalItemRows);
+  const fillerRowCount = Math.max(0, 12 - totalItemRows);
 
   // Calculation logic
   const itemsTotal = invoice.items?.reduce((sum, item) => sum + ((item.quantity || 0) * (item.price || 0) * (1 - (item.discount || 0) / 100)), 0) || 0;
@@ -790,7 +790,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                       border: 'none',
                       bgcolor: '#f0f0f0',
                       fontWeight: 'bold',
-                      width: '35%',
+                      width: '45%',
                       fontSize: '0.85em',
                       py: 0.3,
                       px: 0.3,
@@ -802,7 +802,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                       border: 'none',
                       bgcolor: '#f0f0f0',
                       fontWeight: 'bold',
-                      width: '14%',
+                      width: '10%',
                       fontSize: '0.85em',
                       py: 0.3,
                       px: 0.3,
@@ -814,7 +814,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                       border: 'none',
                       bgcolor: '#f0f0f0',
                       fontWeight: 'bold',
-                      width: '12%',
+                      width: '11%',
                       fontSize: '0.85em',
                       py: 0.3,
                       px: 0.3,
@@ -826,7 +826,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                       border: 'none',
                       bgcolor: '#f0f0f0',
                       fontWeight: 'bold',
-                      width: '8%',
+                      width: '9%',
                       fontSize: '0.85em',
                       py: 0.3,
                       px: 0.3,
@@ -850,7 +850,7 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                       border: 'none',
                       bgcolor: '#f0f0f0',
                       fontWeight: 'bold',
-                      width: '18%',
+                      width: '20%',
                       fontSize: '0.85em',
                       py: 0.3,
                       px: 0.3,
@@ -884,7 +884,11 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
                         px: 0.3,
                         borderRight: verticalBorder
                       }}>
-                        <Typography variant="body2" sx={{ fontWeight: 'medium', fontSize: '1.1em' }}>
+                        <Typography variant="body2" sx={{ 
+                          fontWeight: 'medium', 
+                          fontSize: item.name && item.name.length > 18 ? (item.name.length > 30 ? '0.85em' : '0.95em') : '1.1em',
+                          lineHeight: 1.1
+                        }}>
                           {item.name}
                         </Typography>
                         {item.description && (
@@ -1142,10 +1146,10 @@ export default function ClassicInvoiceTemplate({ invoice, settings, previewMode,
             boxSizing: 'border-box',
             backgroundColor: '#f9f9f9'
           }}>
-            <Typography sx={{ fontSize: '1.2em', fontWeight: 'bold', display: 'inline' }}>
+            <Typography sx={{ fontSize: '0.85em', fontWeight: 'bold', display: 'inline' }}>
               Amount Chargeable (in words):
             </Typography>
-            <Typography sx={{ fontSize: '1.2em', fontWeight: 'bold', display: 'inline', ml: 1, textTransform: 'capitalize' }}>
+            <Typography sx={{ fontSize: '0.85em', fontWeight: 'bold', display: 'inline', ml: 1, textTransform: 'capitalize' }}>
                {numberToWords(finalGrandTotal)}
             </Typography>
           </Box>
